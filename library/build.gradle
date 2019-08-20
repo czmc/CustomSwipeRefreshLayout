@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'//添加
 
 android {
     compileSdkVersion 28
@@ -37,13 +36,5 @@ dependencies {
     implementation 'org.jetbrains:annotations:15.0'
 }
 
-
-//添加
-publish {
-    userOrg = 'czmc'//bintray.com你的用户名
-    groupId = 'com.github.widget'//jcenter上的路径
-    artifactId = 'CustomSwipeRefreshLayout'//项目名称
-    publishVersion = '1.0.0'//版本号
-    desc = '基于SwipeRefreshLayout修改的可定制刷新头部的刷新控件'//描述，不重要
-    website = 'https://github.com/czmc/CustomSwipeRefreshLayout'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
-}
+apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
+apply from: rootProject.file('gradle/gradle-bintray-upload.gradle')
